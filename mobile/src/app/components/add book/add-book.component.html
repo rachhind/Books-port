@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+
+
+
+
+<!-- Add the form tag and display the validators and the submit button --><form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" />
+    <div *ngIf="addBookForm.get('title').invalid && addBookForm.get('title').touched">
+      <small *ngIf="addBookForm.get('title').errors.required">Title is required.</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="author">Author:</label>
+    <input id="author" formControlName="author" />
+    <div *ngIf="addBookForm.get('author').invalid && addBookForm.get('author').touched">
+      <small *ngIf="addBookForm.get('author').errors.required">Author is required.</small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="addBookForm.invalid">Add Book</button>
+</form>
+<div *ngIf="successMessage" class="success-message">
+  {{ successMessage }}
