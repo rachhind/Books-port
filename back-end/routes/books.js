@@ -21,7 +21,13 @@ router.post('/addBook', (req, res)=>{
 });
 
 router.get('/getBooks', (req, res)=>{
-        /* implement the getBooks route from scratch */
+        Book.findAll()
+            .then(books => {
+                return res.status(200).json(books);
+            })
+            .catch(err => {
+                return res.status(500).json({ error: err.message });
+            });
 });
 
 router.get('/getBook/:id', (req, res) => {
