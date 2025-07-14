@@ -1,0 +1,22 @@
+<div class="card" style="width:400px">
+  <img class="card-img-top" [src]="book.image" alt="Card image" style="width:100%">
+  <div class="card-body">
+   
+   
+    <input type="text" #f >
+    <button (click)="change_book(f, book.ID)" class="btn btn-primary">{{book.status == 'available'?'Borrow':'Return'}}</button>
+    
+  </div>
+</div>
+
+<!-- Complete displaying the book properties, and add bootstrap classes if you need to -->
+  <div class="card-body">
+    <h4 class="card-title">{{book.title}}</h4>
+    <p class="card-text">Author: {{book.author}}</p>
+    <p class="card-text">Category: {{book.category}}</p>
+    <p class="card-text">Publish Date: {{book.publish_date}}</p>
+    <p class="card-text">Contact: {{book.contact}}</p>
+    <p class="card-text">Phone: {{book.phone}}</p>
+    <p class="card-text">Email: {{book.email}}</p>
+    <p class="card-text">Abstract: {{book.abstract}}</p>
+  </div>
