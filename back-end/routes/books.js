@@ -2,29 +2,31 @@ const Book = require('./../models/book-model');
 const router = require('express').Router();
 const Sequelize = require('sequelize');
 
-router.post('/addBook', (req, res)=>{
-        Book.create({image: req.body.image,
-                    title: req.body.title,
-                    contact: req.body.contact,
-                    phone: req.body.phone,
-                    email: req.body.email,
-                    abstract: req.body.abstract,
-                    author: req.body.author,
-                    publish_date: req.body.publish_date,
-                    category: req.body.category,
-            }).then((book)=>{    
-                
-                   return res.status(200).json({msg: `${book.title} has been added successfully`})}).catch((err)=>{ return res.status(500);});
-    
-    
-
+router.post('/addBook', (req, res) => {
+    Book.create({
+        image: req.body.image,
+        title: req.body.title,
+        contact: req.body.contact,
+        phone: req.body.phone,
+        email: req.body.email,
+        abstract: req.body.abstract,
+        author: req.body.author,
+        publish_date: req.body.publish_date,
+        category: req.body.category,
+    })
+    .then((book) => {
+        res.status(201).json({ message: 'Book added successfully', book });
+    })
+    .catch((error) => {
+        res.status(500).json({ message: 'Error adding book', error });
+    });
 });
 
-router.get('/getBooks', (req, res)=>{
-        Book.findAll()
-            .then(books => {
-                return res.status(200).json(books);
-            })
+router.get('/getBooks', (req, res) => {
+    Book.findAll()
+        .then(books => {
+            return res.status(200).json(books);
+        })
             .catch(err => {
                 return res.status(500).json({ error: err.message });
             });
