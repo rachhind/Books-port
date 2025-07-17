@@ -1,6 +1,7 @@
 const Book = require('./../models/book-model');
 const router = require('express').Router();
 const Sequelize = require('sequelize');
+app.use(express.json());
 
 // Add a book
 router.post('/addBook', (req, res) => {
