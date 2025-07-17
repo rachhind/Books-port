@@ -6,17 +6,16 @@ app.use(express.json());
 // Add a book
 router.post('/addBook', (req, res) => {
     Book.create({
-        image: 'https://m.media-amazon.com/images/I/81EJDQfg3dL._UF1000,1000_QL80_.jpg',
-        title: 'the house at watch hill',
-        contact: 'john doe',
-        phone: '123-456-7890',
-        email: 'johndoe@example.com',
-        abstract: 'a thrilling mystery novel set in a coastal town.',
-        author: 'karen marie moning',
-        publish_date: 'october 2024',
-        category: 'fiction',
-    })
-
+  image: req.body.image,
+  title: req.body.title,
+  contact: req.body.contact,
+  phone: req.body.phone,
+  email: req.body.email,
+  abstract: req.body.abstract,
+  author: req.body.author,
+  publish_date: req.body.publish_date,
+  category: req.body.category,
+})
     .then((book) => {
         return res.status(200).json({ msg: `${book.title} has been added successfully` });
     })
