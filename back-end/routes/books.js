@@ -48,31 +48,20 @@ router.get('/getBook/:id', (req, res) => {
         });
 });
 
-// Change book status (borrow/return)
-router.patch('/changeBook/:id', (req, res) => {
-Book.findOne({ where: { id: req.params.id } })
-        .then((book) => {
-            if (!book) {
-                return res.status(404).json({ success: false, error: 'Book not found' });
-            }
-
-            if (book.status === 'available' && book.borrowedBy == null) {
-                book.status = 'not available';
-                book.borrowedBy = req.body.email;
-            } else if (book.status === 'not available' && req.body.email === book.borrowedBy) {
-                book.status = 'available';
-                book.borrowedBy = null;
-            } else {
-                return res.json({ success: false, message: 'Invalid operation' });
-            }
-
-            return book.save().then((updatedBook) => {
-                return res.status(200).json({ book: updatedBook, success: true });
-            });
-        })
-        .catch((err) => {
-            return res.status(500).json({ success: false, error: 'Failed to update book', details: err.message });
-        });
+router.patch('/changeBook/:id', (req, res)=>{
+        Book.findOne({where: {ID: req.params.id}}).then((book)=>{
+              if (book.status == 'available' && book.borrowedBy == null) 
+              { book.status = 'not available';
+               book.borrowedBy = req.body.email;}
+               else if (book.status == 'not available' && req.body.email == book.borrowedBy) {
+                       book.status = 'available';
+                       book.borrowedBy = null;
+               }
+               else {return res.json({success: false}); }
+                book.save();
+                // complete the following method, return a json object having the book object as a property after being edited and a boolean 
+              //  property called success in case of success, and error with status 500 in case of failure 
+               return res.status(200).json({book: book, success: true})}).catch((err)=>{return res.status(500).send(err);});
 });
 
 module.exports = router;
