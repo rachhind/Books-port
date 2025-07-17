@@ -1,4 +1,4 @@
-const sequelize = require('../configurations/config');
+const sequelize = require('../configurations/config').default;
 const Sequelize = require('sequelize');
 
 

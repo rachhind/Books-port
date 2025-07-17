@@ -1,0 +1,42 @@
+.home-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.email-input {
+  margin-bottom: 20px;
+}
+
+.email-input input {
+  padding: 8px;
+  width: 250px;
+  margin-left: 10px;
+}
+
+.book-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.book-card img {
+  max-height: 100px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.book-card button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book-card button:hover {
+  background-color: #0056b3;
+}

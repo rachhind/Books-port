@@ -1,7 +1,25 @@
-<p>
-  home works!
-</p>
+<div class="home-container">
+  <h2>Book Library</h2>
 
+  <div class="email-input">
+    <label for="email">Your Email:</label>
+    <input [(ngModel)]="emailInput" type="email" id="email" placeholder="Enter your email" required />
+  </div>
 
+  <div *ngIf="books.length === 0">
+    <p>No books found.</p>
+  </div>
 
-<!-- Add an image or text or links to another components -->
+  <div class="book-card" *ngFor="let book of books">
+    <img [src]="book.image" alt="Book cover" />
+    <h3>{{ book.title }}</h3>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+    <p><strong>Category:</strong> {{ book.category }}</p>
+    <p><strong>Status:</strong> {{ book.status }}</p>
+    <p><strong>Borrowed By:</strong> {{ book.borrowedBy || 'N/A' }}</p>
+
+    <button (click)="toggleBookStatus(book)">
+      {{ book.status === 'available' ? 'Borrow' : 'Return' }}
+    </button>
+  </div>
+</div>

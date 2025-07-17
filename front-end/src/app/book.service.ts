@@ -7,23 +7,29 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class BookService {
 
   constructor(private http: HttpClient) { }
+
+  // GET all books
   getBooks() {
-    /* Impement the getBooks method and the get http method, don’t forget to add the url of the api end point and its parameters */
-
+    const url = 'http://localhost:3000/books/getBooks'; // API endpoint
+    return this.http.get(url); // GET HTTP method
   }
+
+  //POST to add a new book
   addBook(form: any) {
-    const headers = new HttpHeaders({'Content-Type': 'application/json', 'Accept': 'application/json'});
-    const options = {headers: headers};
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+    const options = { headers: headers };
+    const url = 'http://localhost:3000/books/addBook'; // API endpoint
 
-    /* Implement the post method and add its parameters */
-
-
+    return this.http.post(url, JSON.stringify(form), options);
   }
 
+  // PATCH to borrow or return a book
   changeBook(email: any, id: any) {
     const headers = new HttpHeaders({'Content-Type': 'application/json', 'Accept': 'application/json'});
-    const options = {headers: headers};
-    console.log(JSON.stringify(email));
-    return this.http.patch(`http://localhost:3000/books/changeBook/${id}`, JSON.stringify({email}), options);
+    const options = { headers: headers };
+    return this.http.patch(`http://localhost:3000/books/changeBook/${id}`, JSON.stringify({ email }), options);
   }
 }
