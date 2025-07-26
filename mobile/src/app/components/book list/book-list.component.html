@@ -1,7 +1,15 @@
+<ion-content>
+  <div class="book-list-container">
+    <div class="book-list-title">Browse Books</div>
 
+    <div *ngIf="books.length === 0" class="empty-message">
+      No books available.
+    </div>
 
-
-
-
-
-<!-- Iterate over the array of books using *ngFor, then add the book-item component as a child, and add bootstrap classes if you need to -->
+    <div class="book-grid">
+      <div class="book-card" *ngFor="let book of books">
+        <app-book-item [book]="book"></app-book-item>
+      </div>
+    </div>
+  </div>
+</ion-content>

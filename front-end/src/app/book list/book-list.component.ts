@@ -8,13 +8,25 @@ import { BookService } from '../book.service';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-books: Book[];
-  constructor( ) {
-    
-   }
+  books: Book[] = [];
 
-  ngOnInit() {
+  constructor(private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.getBooks();
   }
 
+  getBooks(): void {
+    this.bookService.getBooks().subscribe({
+      next: (data: Book[]) => {
+        this.books = data;
+      },
+      error: (error) => {
+        console.error('Error fetching books:', error);
+      }
+    });
+  }
 }
-/* Inject the service, then use the getBooks method to fill the books property */
+
+
+

@@ -1,45 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../../services/book.service';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-})
-export class HomeComponent implements OnInit {
-  books: any[] = [];
-  emailInput: string = '';
+import { HomeComponent } from './home.component';
 
-  constructor(private bookService: BookService) {}
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
-  ngOnInit(): void {
-    this.getBooks();
-  }
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HomeComponent ]
+    })
+    .compileComponents();
+  }));
 
-  getBooks(): void {
-    this.bookService.getBooks().subscribe({
-      next: (data: any) => {
-        this.books = data;
-      },
-      error: (err) => {
-        console.error('Error fetching books:', err);
-      }
-    });
-  }
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  toggleBookStatus(book: any): void {
-    if (!this.emailInput) {
-      alert('Please enter your email.');
-      return;
-    }
-
-    this.bookService.changeBook(this.emailInput, book.ID).subscribe({
-      next: () => {
-        this.getBooks(); // refresh list
-      },
-      error: (err) => {
-        console.error('Error updating book:', err);
-      }
-    });
-  }
-}
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

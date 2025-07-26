@@ -1,0 +1,60 @@
+/* Container for the whole book list section */
+.book-list-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Title styling */
+.book-list-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Message when there are no books */
+.empty-message {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+/* Grid layout for book cards */
+.book-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Optional card wrapper if you're keeping .book-card around the app-book-item */
+.book-card {
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .book-list-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .book-items {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-list-container {
+    padding: 0 10px;
+  }
+
+  .book-list-container h1 {
+    font-size: 1.4rem;
+  }
+}

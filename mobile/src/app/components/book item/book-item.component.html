@@ -1,18 +1,18 @@
+<ion-card class="book-card">
+  <img [src]="book.image" alt="{{book.title}} cover" class="book-image" />
 
-
-<ion-card>
   <ion-card-header>
-    <ion-card-subtitle>{{book.title}}</ion-card-subtitle>
-    <ion-card-title>{{book.author}}</ion-card-title>
+    <ion-card-title>{{ book.title }}</ion-card-title>
+    <ion-card-subtitle>by {{ book.author }}</ion-card-subtitle>
   </ion-card-header>
+
   <ion-card-content>
-      <p>{{book.abstract}}</p>
-    
-     
-      <img [src]="book.image">
-     
-     
+    <p><strong>Category:</strong> {{ book.category }}</p>
+    <p><strong>Published:</strong> {{ book.publish_date }}</p>
+    <p><strong>Contact:</strong> {{ book.contact }}</p>
+    <p><strong>Email:</strong> {{ book.email }}</p>
+    <p><strong>Phone:</strong> {{ book.phone }}</p>
+    <p><strong>Abstract:</strong></p>
+    <p>{{ book.abstract }}</p>
   </ion-card-content>
 </ion-card>
-
-<!-- Complete displaying the book properties -->    

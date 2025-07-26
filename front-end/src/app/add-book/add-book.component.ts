@@ -67,11 +67,6 @@ export class AddBookComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-
-
-
-
-
   ngOnInit() {
   }
 
