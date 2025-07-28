@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../book'; // Make sure this interface exists
-import { BookService } from '../book.service';
+import { BookService } from '../books.service';
 import { Router } from '@angular/router';
 
 @Component({
