@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Book } from 'src/app/book';
 import { Router } from '@angular/router';
-import { BooksService } from 'src/app/books.service';
+import { BookService } from 'src/app/book.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./add-book.component.scss'],
 })
 export class AddBookComponent implements OnInit {
-  constructor(private router: Router, private service: BooksService) { }
+  constructor(private router: Router, private service: BookService) { }
   form: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required]),
     author: new FormControl('',[Validators.required]),

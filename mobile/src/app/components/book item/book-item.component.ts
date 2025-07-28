@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { BooksService } from 'src/app/books.service';
+import { Book } from 'src/app/book'; // adjust path if needed
 
 @Component({
   selector: 'app-book-item',
@@ -8,10 +7,9 @@ import { BooksService } from 'src/app/books.service';
   styleUrls: ['./book-item.component.scss'],
 })
 export class BookItemComponent implements OnInit {
-  @Input() book;
-  constructor( ) { }
-  
+  @Input() book!: Book;
+
+  constructor() {}
 
   ngOnInit() {}
-
 }
