@@ -1,22 +1,22 @@
-<div class="card" style="width:400px">
-  <img class="card-img-top" [src]="book.image" alt="Card image" style="width:100%">
+<div class="card" style="width: 400px;">
+  <img class="card-img-top" [src]="book.image" [alt]="'Image of ' + book.title" style="width: 100%;">
+  
   <div class="card-body">
-   
-   
-    <input type="text" #f >
-    <button (click)="change_book(f, book.ID)" class="btn btn-primary">{{book.status == 'available'?'Borrow':'Return'}}</button>
+    <h4 class="card-title">{{ book.title }}</h4>
+    <p class="card-text"><strong>Author:</strong> {{ book.author }}</p>
+    <p class="card-text"><strong>Category:</strong> {{ book.category }}</p>
+    <p class="card-text"><strong>Publish Date:</strong> {{ book.publish_date | date:'mediumDate' }}</p>
+    <p class="card-text"><strong>Contact:</strong> {{ book.contact }}</p>
+    <p class="card-text"><strong>Phone:</strong> {{ book.phone }}</p>
+    <p class="card-text"><strong>Email:</strong> <a href="mailto:{{ book.email }}">{{ book.email }}</a></p>
+    <p class="card-text"><strong>Abstract:</strong> {{ book.abstract }}</p>
     
+    <div class="d-flex align-items-center mt-3">
+      <input type="text" #f class="form-control me-2" placeholder="Enter status" style="max-width: 120px;">
+      <button (click)="change_book(f.value, book.ID)" 
+              class="btn btn-primary">
+        {{ book.status === 'available' ? 'Borrow' : 'Return' }}
+      </button>
+    </div>
   </div>
 </div>
-
-<!-- Complete displaying the book properties, and add bootstrap classes if you need to -->
-  <div class="card-body">
-    <h4 class="card-title">{{book.title}}</h4>
-    <p class="card-text">Author: {{book.author}}</p>
-    <p class="card-text">Category: {{book.category}}</p>
-    <p class="card-text">Publish Date: {{book.publish_date}}</p>
-    <p class="card-text">Contact: {{book.contact}}</p>
-    <p class="card-text">Phone: {{book.phone}}</p>
-    <p class="card-text">Email: {{book.email}}</p>
-    <p class="card-text">Abstract: {{book.abstract}}</p>
-  </div>
