@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Book } from '../book';
 import { HttpErrorResponse } from '@angular/common/http';
-import { BookService } from '../books.service';
+import { BookService } from '../book.service';
 import { Router } from '@angular/router';
 
 @Component({
