@@ -1,3 +1,15 @@
-<p>
-  book-list works!
-</p>
+<ion-content>
+  <div class="book-list-container">
+    <div class="book-list-title">Browse Books</div>
+
+    <div *ngIf="books.length === 0" class="empty-message">
+      No books available.
+    </div>
+
+    <div class="book-grid">
+      <div class="book-card" *ngFor="let book of books">
+        <app-book-item [book]="book"></app-book-item>
+      </div>
+    </div>
+  </div>
+</ion-content>

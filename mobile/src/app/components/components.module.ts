@@ -10,7 +10,12 @@ import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [AddBookComponent, BookItemComponent, BookListComponent, HomeComponent],
+  declarations: [
+    AddBookComponent,
+    BookItemComponent,
+    BookListComponent,
+    HomeComponent
+  ],
   imports: [
     CommonModule, IonicModule, ReactiveFormsModule
   ],
