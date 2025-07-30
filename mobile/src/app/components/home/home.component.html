@@ -1,18 +1,12 @@
-<div class="home-container">
-  <h1>Welcome to BookConnect</h1>
-  <p class="description">Exchange books with people around you — browse what's available or add your own.</p>
-
-  <div class="home-actions">
-    <div class="action-card">
-      <h3>Browse Books</h3>
-      <p>See all available books listed by others.</p>
-      <a routerLink="/books">Explore</a>
-    </div>
-
-    <div class="action-card">
-      <h3>Post a Book</h3>
-      <p>Have a book to share? Post it and connect with readers.</p>
-      <a routerLink="/addBook">Add Book</a>
-    </div>
-  </div>
-</div>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Hello, Book Lover!</ion-card-title>
+    <ion-card-subtitle>
+      Discover, add, and manage your favorite books.
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+   <ion-button routerLink="/tabs/tab3" color="primary">ADD BOOK</ion-button>
+  <ion-button routerLink="/tabs/tab2" color="primary">BOOK LIST</ion-button>
+  </ion-card-content>
+</ion-card>

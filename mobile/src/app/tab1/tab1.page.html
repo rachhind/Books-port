@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- Existing Card -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>
@@ -17,12 +18,47 @@
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      <ion-button routerLink="/tabs/add-book">Add Book</ion-button>
-      <ion-button routerLink="/tabs/book-list">Book List</ion-button>
-      <ion-button expand="block" routerLink="/tabs/book-list" color="medium">
-        View Book List
-      </ion-button>
+      <ion-button routerLink="/tabs/tab3" color="primary">Add Book</ion-button>
+      <ion-button routerLink="/tabs/tab2" color="secondary">Book List</ion-button>
     </ion-card-content>
   </ion-card>
 
-  
+  <!-- New Section: Featured Books -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Featured Books</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h2>The Great Gatsby</h2>
+            <p>by F. Scott Fitzgerald</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h2>To Kill a Mockingbird</h2>
+            <p>by Harper Lee</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- New Section: Info/Instructions -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>How It Works</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ol>
+        <li>Browse the book list to find something you like.</li>
+        <li>Add your own books for others to borrow.</li>
+        <li>Contact users to arrange a swap or loan.</li>
+      </ol>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- You can add more cards, images, links, or even your own components here -->
+</ion-content>
