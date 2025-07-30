@@ -1,15 +1,19 @@
-<ion-content>
-  <div class="book-list-container">
-    <div class="book-list-title">Browse Books</div>
-
-    <div *ngIf="books.length === 0" class="empty-message">
-      No books available.
-    </div>
-
-    <div class="book-grid">
-      <div class="book-card" *ngFor="let book of books">
-        <app-book-item [book]="book"></app-book-item>
-      </div>
-    </div>
-  </div>
-</ion-content>
+<ion-list *ngIf="books && books.length; else emptyList">
+  <ion-item *ngFor="let book of books">
+    <ion-thumbnail slot="start" *ngIf="book.cover">
+      <img [src]="book.cover" alt="Book cover" />
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{ book.title }}</h2>
+      <p>by {{ book.author }}</p>
+      <p>{{ book.description }}</p>
+      <ion-badge color="success" *ngIf="book.status === 'Available'">Available</ion-badge>
+      <ion-badge color="medium" *ngIf="book.status === 'Borrowed'">Borrowed</ion-badge>
+    </ion-label>
+  </ion-item>
+</ion-list>
+<ng-template #emptyList>
+  <ion-item>
+    <ion-label>No books available yet.</ion-label>
+  </ion-item>
+</ng-template>
