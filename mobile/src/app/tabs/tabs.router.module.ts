@@ -20,6 +20,14 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'add-book',
+        loadChildren: () => import('../components/add-book/add-book.module').then(m => m.AddBookModule)
+      },
+      {
+        path: 'book-list',
+        loadChildren: () => import('../components/book-list/book-list.module').then(m => m.BookListModule)
+      },
+      {
         path: '',
         redirectTo: 'tab1',
         pathMatch: 'full'
@@ -27,7 +35,6 @@ const routes: Routes = [
     ]
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
