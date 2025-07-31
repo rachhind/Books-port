@@ -1,7 +1,7 @@
 <ion-list *ngIf="books && books.length; else emptyList">
   <ion-item *ngFor="let book of books">
     <ion-thumbnail slot="start" *ngIf="book.cover">
-      <img [src]="book.cover" alt="Book cover" />
+      <img class="book-cover" src="{{ book.cover }}" />
     </ion-thumbnail>
     <ion-label>
       <h2>{{ book.title }}</h2>

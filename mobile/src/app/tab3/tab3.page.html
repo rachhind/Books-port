@@ -1,10 +1,55 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>Add Book</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <!-- Add book component displays the form for adding a book -->
-  <app-add-book></app-add-book>
+<ion-content>
+  <form [formGroup]="bookForm" (ngSubmit)="addBook()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input formControlName="title" placeholder="Enter the book title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Author</ion-label>
+        <ion-input formControlName="author" placeholder="Enter the author's name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Image URL</ion-label>
+        <ion-input formControlName="image" placeholder="Paste the image URL here"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contact</ion-label>
+        <ion-input formControlName="contact" placeholder="Enter contact person's name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input formControlName="phone" type="tel" placeholder="Enter phone number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Enter email address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Abstract</ion-label>
+        <ion-textarea formControlName="abstract" placeholder="Enter a short abstract or description"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Category</ion-label>
+        <ion-input formControlName="category" placeholder="Enter book category"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" [disabled]="bookForm.invalid">
+      Submit
+    </ion-button>
+  </form>
 </ion-content>

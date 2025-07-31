@@ -1,17 +1,18 @@
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+
+import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { Tab3Page } from './tab3.page';
-import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
-    FormsModule, ComponentsModule, ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }])
+    FormsModule,
+    ReactiveFormsModule,
+    Tab3PageRoutingModule
   ],
   declarations: [Tab3Page]
 })

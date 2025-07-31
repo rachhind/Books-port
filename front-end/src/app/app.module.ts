@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { BookItemComponent } from './book-item/book-item.component';
-import { BookListComponent } from './book-list/book-list.component';
+import { BookItemComponent } from './book item/book-item.component';
+import { BookListComponent } from './book list/book-list.component';
 import { AddBookComponent } from './add-book/add-book.component';
 
 @NgModule({
